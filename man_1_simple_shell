@@ -1,0 +1,37 @@
+.TH SIMPLE SHELL
+.SH NAME
+.B Simple Shell
+- command interpreter
+
+.SH SYNOPSIS
+.B ./simple_shell
+
+.SH DESCRIPTION
+The simple shell is the standard command interpreter for the system. It is a command that reads lines from either a file or the terminal, interprets them, and generally executes other commands.
+.TP
+.B Builtins
+This section lists the builtin commands which are builtin because they need to perform some operation that can't be performed by a separate process.
+.TP
+.BR exit [exitstatus]
+Terminate the shell process.
+.TP
+.BR 
+
+.SH EXAMPLE
+Print the path of the directory
+.PP
+.nf
+.RS
+$/bin/pwd
+
+$/bin/ls
+
+.RE
+.fi
+.PP
+
+.SH AUTHOR
+Claudia Bura & Anne-Laure Guilloux
+
+.SH Date: 2022/12/09
+
