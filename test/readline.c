@@ -23,11 +23,3 @@ char *readline(void)
 	}
 	return (argv);
 }
-
-int main(void)
-{
-	write(1, ":) ", 4);
-
-	while(1)
-		readline();
-}

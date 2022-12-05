@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * exec_cmd - execve example
+ * exec_cmd - execute the line
+ * @argv: arguments in the terminal
  *
- * Return: 0.
+ * Return: void
  */
 void exec_cmd(char **argv)
 {
-        /*char *pathname = "/bin/sh";*/
 	pid_t pid;
         int status;
 
@@ -25,13 +25,4 @@ void exec_cmd(char **argv)
 	else
 		wait(&status);
 
-}
-
-int main(void)
-{
-	char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
-
-	exec_cmd(argv);
-	
-	return (0);
 }
