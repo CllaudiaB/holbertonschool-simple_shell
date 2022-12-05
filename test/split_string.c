@@ -9,23 +9,25 @@
 
 char **split_string(char *str)
 {
-	int i = 0, size = 1024;
+	int i = 0;
+	int size = 1024;
 	char **argv = malloc(sizeof(char *) * size);
 	char *token;
+	char *delim = " ";
 
-	if (argv == NULL)
+	if (!argv)
 	{
 		write(2, "Error", 6);
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(str, " ");
+	token = strtok(str, delim);
 
 	while (token != NULL)
 	{
 		argv[i] = token;
-		token = strtok(NULL, " ");
 		i++;
+		token = strtok(NULL, delim);
 	}
 	argv[i] = NULL;
 
@@ -36,5 +38,6 @@ int main(void)
 {
 	char *s = "hello you";
 	split_string(s);
+
 	return (0);
 }
