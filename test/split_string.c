@@ -12,29 +12,18 @@ char **split_string(char *str)
 	int i = 0, size = 1024;
 	char **argv = malloc(sizeof(char *) * size);
 	char *token;
-	char *delim = " ";
 
 	if(argv == NULL)
 		exit(0);
 
-	token = strtok(str, delim);
+	token = strtok(str, " ");
 
 	while (token != NULL)
 	{
 		argv[i] = strdup(token);
+		token = strtok(NULL, " ");
 		i++;
-		token = strtok(NULL, delim);
 	}
 	argv[i] = NULL;
 
 	return (argv);
-}
-
-int main(void)
-{
-	char *s = "hello world";
-	split_string(s);
-	printf("%s\n", s);
-
-	return (0);
-}
