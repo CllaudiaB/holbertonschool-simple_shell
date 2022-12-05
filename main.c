@@ -13,8 +13,8 @@ int main(void)
 		
 		line = readline();
 		args = split_string(line);
-		if (line[0] != '\n' || line[1] != '\0')
-			status = exec_cmd(args);
+		printf("%s\n", *args);
+		status = exec_cmd(args);
 
 		free(line);
 		free(args);

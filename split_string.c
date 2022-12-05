@@ -15,21 +15,18 @@ char **split_string(char *str)
 	char *token;
 	char *delim = " ";
 
-	if (str == NULL)
-		return (NULL);
 	
 	if (!argv)
 	{
-		write(2, "Error", 6);
+		perror("Failed");
 		exit(EXIT_FAILURE);
 	}
 
 	token = strtok(str, delim);
 
-	while (token != NULL)
+	for (i = 0; token != NULL; i++)
 	{
-		argv[i] = token;
-		i++;
+		argv[i] = strdup(token);
 		token = strtok(NULL, delim);
 	}
 	argv[i] = NULL;
