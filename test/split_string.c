@@ -13,17 +13,28 @@ char **split_string(char *str)
 	char **argv = malloc(sizeof(char *) * size);
 	char *token;
 
-	if(argv == NULL)
-		exit(0);
+	if (argv == NULL)
+	{
+		write(2, "Error", 6);
+		exit(EXIT_FAILURE);
+	}
 
 	token = strtok(str, " ");
 
 	while (token != NULL)
 	{
-		argv[i] = strdup(token);
+		argv[i] = token;
 		token = strtok(NULL, " ");
 		i++;
 	}
 	argv[i] = NULL;
 
 	return (argv);
+}
+
+int main(void)
+{
+	char *s = "hello you";
+	split_string(s);
+	return (0);
+}

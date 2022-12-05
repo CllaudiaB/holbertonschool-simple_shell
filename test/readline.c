@@ -20,6 +20,6 @@ char *readline(void)
 	{
 		write(1, argv, BUFFER_SIZE);
 		write(1, ":) ", 4);
-	}
+		}
 	return (argv);
 }
