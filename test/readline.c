@@ -1,27 +1,33 @@
 #include "shell.h"
 
+#define BUFFER_SIZE 64
 
-void readline()
+/**
+ * readline - Read the command from standard input
+ *
+ * Return: void
+ */
+
+char *readline(void)
 {
 	int argc;
-	char **argv = {NULL};
+	char *argv = {NULL};
 	ssize_t read;
 
-	read = getline(&(*argv),(size_t *)&argc, stdin);
+	read = getline(&(argv),(size_t *)&argc, stdin);
 
-	if (read != -1)
+	if (read > 0)
 	{
-		while (argv != NULL)
-			printf("%s\n", *argv);
-		exit(EXIT_SUCCESS);
+		write(1, argv, BUFFER_SIZE);
+		write(1, ":) ", 4);
 	}
+	return (argv);
 }
 
-int main()
+int main(void)
 {
-	write(1, ";) ", 4);
-	while (1)
-		readline();
+	write(1, ":) ", 4);
 
-        return (0);
+	while(1)
+		readline();
 }

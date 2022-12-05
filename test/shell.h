@@ -8,11 +8,14 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
-#define BUFFER_SIZE 1024
 
 extern char **environ;
 
-/* putchar*/
+/*functions shell */
+void exec_cmd(char **argv);
+char *readline(void);
+char **split_string(char *str);
+
 int _putchar(char c);
 
 /** functions_str */

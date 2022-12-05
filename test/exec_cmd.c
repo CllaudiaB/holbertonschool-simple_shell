@@ -14,10 +14,7 @@ void exec_cmd(char **argv)
 	pid = fork();
 
         if (pid == -1)
-                perror("Erreur to create a new child\n");
-
-	else if (pid > 0)
-		wait(&status);
+                perror("Fail\n");
 
 	if (pid == 0)
         {
@@ -25,4 +22,16 @@ void exec_cmd(char **argv)
                         perror("Error to execute the command");
 		exit(EXIT_FAILURE);
         }
+	else
+		wait(&status);
+
+}
+
+int main(void)
+{
+	char *argv[] = {"/bin/ls", "-l", "/usr/", NULL};
+
+	exec_cmd(argv);
+	
+	return (0);
 }
