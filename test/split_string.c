@@ -1,33 +1,40 @@
 #include "shell.h"
 
 /**
+ *split_string - split a string
+ *@str: string
  *
- *
- *
- *
+ *Return: array of each word of the string
  */
 
 char **split_string(char *str)
 {
-
-	int argc = strlen(str);
-	int i;
-	char **argv = malloc(argc * sizeof(char));
-	char *token, *delim = " ";
+	int i = 0, size = 1024;
+	char **argv = malloc(sizeof(char *) * size);
+	char *token;
+	char *delim = " ";
 
 	if(argv == NULL)
-	{
-		perror("Error");
-		free(argv);
-		free(str);
-	}
+		exit(0);
 
 	token = strtok(str, delim);
-	for (i = 0; i < argc; i++)
+
+	while (token != NULL)
 	{
-		argv[i] = token;
+		argv[i] = strdup(token);
+		i++;
 		token = strtok(NULL, delim);
 	}
 	argv[i] = NULL;
+
 	return (argv);
+}
+
+int main(void)
+{
+	char *s = "hello world";
+	split_string(s);
+	printf("%s\n", s);
+
+	return (0);
 }
