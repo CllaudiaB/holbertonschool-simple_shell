@@ -9,35 +9,21 @@
 
 char **split_string(char *str)
 {
+	int size = 64;
 	int i = 0;
-	int size = 1024;
-	char **argv = malloc(sizeof(char *) * size);
+	char *strcpy = strdup(str);
+	char **tab_str = malloc(sizeof(char *) * size);
 	char *token;
-	char *delim = " ";
 
-	if (!argv)
+	token = strtok(strcpy, " ");
+	while (token)
 	{
-		write(2, "Error", 6);
-		exit(EXIT_FAILURE);
-	}
-
-	token = strtok(str, delim);
-
-	while (token != NULL)
-	{
-		argv[i] = token;
+		tab_str[i] = token;
+		token = strtok(NULL, " ");
 		i++;
-		token = strtok(NULL, delim);
 	}
-	argv[i] = NULL;
 
-	return (argv);
-}
+	tab_str[i] = NULL;
 
-int main(void)
-{
-	char *s = "hello you";
-	split_string(s);
-
-	return (0);
+	return (tab_str);
 }
