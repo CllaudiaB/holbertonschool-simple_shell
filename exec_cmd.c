@@ -8,32 +8,47 @@
  */
 int exec_cmd(char **argv)
 {
-        pid_t pid;
-        int status;
+	pid_t pid;
+	int status;
+	char *cmd = argv[0];
 
-        pid = fork();
+	pid = fork();
 
-        if (pid == -1)
-                perror("Fail to create the child process");
+	if (pid == -1)
+		perror("Failed to create the child process");
 
-        if (pid == 0)
+	if (pid == 0)
 	{
-		if(argv[0] == NULL)
-        	{
+		if (cmd[0] == '/' || cmd[0] == '.')
+			cmd = argv[0];
+
+		else
+			cmd = _path(argv[0]);
+
+		if (argv[0] == NULL)
+		{
 			free(argv);
 			perror("Failed");
+			return (0);
 		}
-
-                if (execve(argv[0], argv, environ) == -1)
+		if (execve(argv[0], argv, environ) == -1)
 		{
-                        perror("Error to execute the command");
+			perror("Error to execute the command");
 			return (0);
 		}
 		free(argv);
-                exit(EXIT_FAILURE);
-        }
-        else
-                wait(&status);
-
+		exit(EXIT_FAILURE);
+	}
+	else
+		wait(&status);
 	return (1);
 }
+
+/*int main(void)
+{
+	char *argv[] = {"/bin/ls"};
+
+	exec_cmd(argv);
+
+	return (0);
+}*/
