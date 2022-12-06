@@ -19,8 +19,8 @@ char **split_string(char *str)
 	while (token)
 	{
 		tab_str[i] = token;
-		token = strtok(NULL, " ");
 		i++;
+		token = strtok(NULL, " ");
 	}
 
 	tab_str[i] = NULL;

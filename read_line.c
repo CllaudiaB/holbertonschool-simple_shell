@@ -10,19 +10,19 @@
 
 char *readline(void)
 {
-        size_t size = 0;
-        char *argv = NULL;
+	size_t size = 0;
+	char *argv = NULL;
 	ssize_t read;
 
-	read = getline(&(argv),&size, stdin);
+	read = getline(&(argv), &size, stdin);
 
-        if (read == -1)
+	if (read == -1)
 	{
 		if (feof(stdin))
-        	{
+		{
 			free(argv);
 			exit(EXIT_SUCCESS);
-                }
+		}
 		else
 		{
 			perror("Failed to read the line");
@@ -30,6 +30,5 @@ char *readline(void)
 			exit(EXIT_FAILURE);
 		}
 	}
-
-        return (argv);
+	return (argv);
 }
