@@ -12,9 +12,11 @@
 extern char **environ;
 
 /*functions shell */
-int exec_cmd(char **argv);
 char *readline(void);
 char **split_string(char *str);
+int exec_cmd(char **argv);
+char *_getenv(const char *name);
+char *find_path(char *cmd);
 
 int _putchar(char c);
 
