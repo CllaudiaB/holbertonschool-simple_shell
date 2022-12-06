@@ -43,12 +43,3 @@ int exec_cmd(char **argv)
 		wait(&status);
 	return (1);
 }
-
-/*int main(void)
-{
-	char *argv[] = {"/bin/ls"};
-
-	exec_cmd(argv);
-
-	return (0);
-}*/
