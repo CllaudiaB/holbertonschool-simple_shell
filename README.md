@@ -58,21 +58,21 @@ The simple shell is the standard command interpreter for the system. It is a com
 ```man ./man_1_simple_shell```
 
 ## Project functions
-*shell.h* header file
-*read_line.c* read the command from the standard input
-*split_string.c* tokenize the string
-*exec_cmd.c* execute the command
-*environ.c*: * *_getenv.c* get environment variable
-              * *split_env.c* tokenize environ
-              * *print_env* print the environment
-*_path.c* find the path
-*exit_shell* exit the shell 
-*functionc_str.c*: * *_strdup* duplicate string
-                   * *_strcat* concatenate two string
-                   * *_strlen* calculate the length of the string
-                   * *_strcpy* copy the string
-                   * *_strcmp* compare two string
-*main.c* call the other functions to make run
+* *shell.h* header file
+* *read_line.c* read the command from the standard input
+* *split_string.c* tokenize the string
+* *exec_cmd.c* execute the command
+* *environ.c*: * *_getenv.c* get environment variable
+               * *split_env.c* tokenize environ
+               * *print_env* print the environment
+* *_path.c* find the path
+* *exit_shell* exit the shell 
+* *functionc_str.c*: * *_strdup* duplicate string
+                     * *_strcat* concatenate two string
+                     * *_strlen* calculate the length of the string
+                     * *_strcpy* copy the string
+                     * *_strcmp* compare two string
+* *main.c* call the other functions to make run
 ## Examples
 ## Authors
 Anne-Laure Guilloux and Claudia Bura
