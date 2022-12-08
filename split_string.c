@@ -19,7 +19,7 @@ char **split_string(char *str)
 		perror("Failed malloc");
 		exit(0);
 	}
-	
+
 	token = strtok(str, " ");
 	while (token)
 	{
