@@ -14,7 +14,7 @@ char **split_string(char *str)
 	char **tab_str = malloc(sizeof(char *) * size);
 	char *token;
 
-	if (tab_token == NULL)
+	if (tab_str== NULL)
 	{
 		perror("Failed malloc");
 		exit(0);
