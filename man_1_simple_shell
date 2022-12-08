@@ -1,9 +1,12 @@
 .TH SIMPLE SHELL
+
 .SH NAME
 .B Simple Shell
-- command interpreter
+simple_shell - command interpreter
 
 .SH SYNOPSIS
+"#include shell.h"
+TP.
 .B ./simple_shell
 
 .SH DESCRIPTION
@@ -13,19 +16,42 @@ The simple shell is the standard command interpreter for the system. It is a com
 This section lists the builtin commands which are builtin because they need to perform some operation that can't be performed by a separate process.
 .TP
 .BR exit [exitstatus]
-Terminate the shell process.
-.TP
-.BR 
+Terminate the shell process. 
+
+.SH RETURN VALUE
+This function has no return value.
 
 .SH EXAMPLE
+Print the list of files and directories
+.PP
+.nf
+.RS
+root@user:/holbertonschool-simple_shell# ./simple_shell
+;) /bin/ls
+AUTHORS    exec_cmd.c  functions_str.c  man_1_simple_shell  read_line.c  shell.h     
+split_string.c  environ.c  _exit.c     main.c   path.c     README.md    simple_shell
+.RE
+.fi
+.PP
+
 Print the path of the directory
 .PP
 .nf
 .RS
-$/bin/pwd
+root@user:/holbertonschool-simple_shell# ./simple_shell
+;) /bin/pwd
+/holbertonschool-simple_shell
+.RE
+.fi
+.PP
 
-$/bin/ls
-
+Exit the shell
+.PP
+.nf
+.RS
+root@user:/holbertonschool-simple_shell# ./simple_shell
+;) exit
+root@user:/holbertonschool-simple_shell#
 .RE
 .fi
 .PP
@@ -33,5 +59,4 @@ $/bin/ls
 .SH AUTHOR
 Claudia Bura & Anne-Laure Guilloux
 
-.SH Date: 2022/12/09
-
+.SH Date: 2022/12/08
