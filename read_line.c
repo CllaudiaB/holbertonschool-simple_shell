@@ -8,25 +8,19 @@
 
 char *readline(void)
 {
-	size_t size = 0;
 	char *argv = NULL;
-	ssize_t read;
+	size_t size = 0;
+	ssize_t read = 0;
 
 	read = getline(&argv, &size, stdin);
-
 	if (read == -1)
 	{
-		if (feof(stdin))
-		{
-			free(argv);
-			exit(EXIT_SUCCESS);
-		}
-		else
-		{
-			perror("Failed to read the line");
-			free(argv);
-			exit(EXIT_FAILURE);
-		}
+		free(argv);
+		exit(0);
 	}
+	if (argv[read - 1] == '\n')
+		argv[read - 1] = '\0';
+
 	return (argv);
+
 }
