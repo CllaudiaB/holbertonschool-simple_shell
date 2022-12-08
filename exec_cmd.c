@@ -28,18 +28,18 @@ int exec_cmd(char **argv)
 		if (argv[0] == NULL)
 		{
 			free(argv);
-			perror("Failed");
+			perror("Failed arguments");
 			return (0);
 		}
+
 		if (execve(argv[0], argv, environ) == -1)
 		{
 			perror("Error to execute the command");
 			return (0);
 		}
-		free(argv);
-		exit(EXIT_FAILURE);
 	}
 	else
 		wait(&status);
+
 	return (1);
 }
