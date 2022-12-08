@@ -6,19 +6,12 @@
  * Return: 1 if success
  */
 
-void ctrl_c(int signal)
-{
-	(void)signal;
-		printf("\n;) ");
-}
-
 int main(void)
 {
-	int status = 1;
+	int status;
 	char *line;
 	char **argv;
 
-	signal(SIGINT, ctrl_c);
 	while (1)
 	{
 		status = isatty(0);
@@ -32,7 +25,6 @@ int main(void)
 			free(line);
 			return (0);
 		}
-
 		if (_strcmp(line, "exit") == 0)
 		{
 			free(line);
