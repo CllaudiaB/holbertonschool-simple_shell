@@ -3,35 +3,57 @@
 /**
  * main - execute the shell
  *
- * Return: 0 if success
+ * Return: 1 if success
  */
+
+void ctrl_c(int signal)
+{
+	(void)signal;
+		printf("\n;) ");
+}
 
 int main(void)
 {
+	int status = 1;
 	char *line;
-	char **args;
-	int status;
-	(void) status;
+	char **argv;
 
+	signal(SIGINT, ctrl_c);
 	while (1)
 	{
-		printf(":) ");
+		status = isatty(0);
+
+		if (status == 1)
+			printf(";) ");
 
 		line = readline();
-		if (line == NULL)
-			return (0);
-
-		args = split_string(line);
-		if (args == NULL)
+		if (line == NULL || (_strcmp(line, "exit")) == 0)
 		{
 			free(line);
-			free(args);
+			return (0);
+		}
+
+		if (_strcmp(line, "exit") == 0)
+		{
+			free(line);
+			exit_shell();
+		}
+		if (_strcmp(line, "environ") == 0)
+		{
+			print_env();
+			free(line);
 			continue;
 		}
-		status = exec_cmd(args);
-
+		argv = split_string(line);
+		if (argv == NULL)
+		{
+			free(line);
+			free(argv);
+			continue;
+		}
+		status = exec_cmd(argv);
 		free(line);
-		free(args);
+		free(argv);
 	}
 	return (0);
 }

@@ -19,6 +19,7 @@ char *_getenv(const char *name);
 char *_path(char *str);
 char **split_env(char *path);
 void print_env(void);
+int exit_shell(void);
 
 /** functions_str */
 char *_strdup(char *str);
