@@ -16,9 +16,9 @@ char *readline(void);
 char **split_string(char *str);
 int exec_cmd(char **argv);
 char *_getenv(const char *name);
-char *_path(char *getcmd);
+char *_path(char *str);
 char **split_env(char *path);
-void _printenv(void);
+void print_env(void);
 
 /** functions_str */
 char *_strdup(char *str);

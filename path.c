@@ -1,38 +1,35 @@
 #include "shell.h"
 
 /**
- * _path - Verify that the command exists
- * @str: command to verify
+ * _path - Find the path
+ * @str: find the path
  *
- * Return: 0
+ * Return: the path
  */
 
 char *_path(char *str)
 {
-	int notfound = 0;
-	char *token, *path = NULL, *path_copy = NULL;
-	char *temp = getenv("PATH");
 	struct stat st;
+	int i;
+	char *path = _getenv("PATH");
+	char **tab_path = split_env(path);
+	char *newpath = malloc(sizeof(char) * 1024);
 
-	path_copy = malloc(strlen(temp) + 1);
-	strcpy(path_copy, temp);
-
-	token = strtok(path_copy, ":");
-	while (token)
+	if (newpath == NULL)
 	{
-		path = malloc(sizeof(char) * (strlen(token) + strlen(str) + 1));
-		strcat(path, token);
-		strcat(path, "/");
-		strcat(path, str);
-		if (stat(path, &st) == 0)
-		{
-			notfound = 1;
-			return (path);
-		}
-		token = strtok(NULL, ":");
+		perror("Failed malloc");
+		return (NULL);
 	}
-	if (notfound == 0)
-		write(1, "NOT FOUND\n", 11);
 
+	for (i = 0; tab_path[i] != NULL; i++)
+	{
+		newpath[0] = 0;
+		_strcat(newpath, tab_path[i]);
+		_strcat(newpath, "/");
+		_strcat(newpath, str);
+		if (stat(newpath, &st) == 0)
+			return (newpath);
+	}
+	free(newpath);
 	return (NULL);
 }
