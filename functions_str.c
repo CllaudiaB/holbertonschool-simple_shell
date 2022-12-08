@@ -101,13 +101,13 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
-   * _strcmp - compares two strings exactly like strcmp
-    *
-     * @s1: parameter of the function
-      * @s2: parameter of the function
-       *
-        * Return: dest
-	 */
+ * _strcmp - compares two strings exactly like strcmp
+ *
+ * @s1: parameter of the function
+ * @s2: parameter of the function
+ *
+ * Return: dest
+ */
 
 int _strcmp(char *s1, char *s2)
 {
