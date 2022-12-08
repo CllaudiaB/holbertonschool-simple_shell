@@ -1,7 +1,5 @@
 #include "shell.h"
 
-#define BUFFER_SIZE 64
-
 /**
  * readline - Read the command from standard input
  *
@@ -14,7 +12,7 @@ char *readline(void)
 	char *argv = NULL;
 	ssize_t read;
 
-	read = getline(&(argv), &size, stdin);
+	read = getline(&argv, &size, stdin);
 
 	if (read == -1)
 	{
