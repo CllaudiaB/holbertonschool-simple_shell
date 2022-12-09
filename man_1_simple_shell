@@ -27,7 +27,7 @@ Print the list of files and directories
 .nf
 .RS
 root@user:/holbertonschool-simple_shell# ./simple_shell
-;) /bin/ls
+😈 /bin/ls
 AUTHORS    exec_cmd.c  functions_str.c  man_1_simple_shell  read_line.c  shell.h     
 split_string.c  environ.c  _exit.c     main.c   path.c     README.md    simple_shell
 .RE
@@ -39,7 +39,7 @@ Print the path of the directory
 .nf
 .RS
 root@user:/holbertonschool-simple_shell# ./simple_shell
-;) /bin/pwd
+😈 /bin/pwd
 /holbertonschool-simple_shell
 .RE
 .fi
