@@ -52,7 +52,7 @@ The simple shell is the standard command interpreter for the system. It is a com
 * Check memory leaks: ```valgrind ./simple_shell```
 
 ## Compilation
-```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell``
+```gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o simple_shell```
 
 ## Man page execution
 ```man ./man_1_simple_shell```
