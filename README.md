@@ -80,6 +80,7 @@ The simple shell is the standard command interpreter for the system. It is a com
 This function has no return value.
 
 ## Examples
+### Interactive mode
 ```
 root@user:/holbertonschool-simple_shell# ./simple_shell
 ;) /bin/ls
@@ -107,6 +108,12 @@ total 68
 
 ;) exit
 root@user:/holbertonschool-simple_shell#
+```
+### Non interactive mode
+```
+root@user:/holbertonschool-simple_shell# echo "/bin/ls" | ./simple_shell
+AUTHORS    exec_cmd.c  functions_str.c  man_1_simple_shell  read_line.c  shell.h       split_string.c
+environ.c  _exit.c     main.c           path.c              README.md    simple_shell
 ```
 
 ## Authors
