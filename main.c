@@ -17,8 +17,7 @@ int main(void)
 		status = isatty(0);
 
 		if (status == 1)
-			printf(";) ");
-
+			printf("😈 ");
 		line = readline();
 		if (line == NULL || (_strcmp(line, "exit")) == 0)
 		{
