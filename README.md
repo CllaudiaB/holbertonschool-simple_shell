@@ -83,14 +83,14 @@ This function has no return value.
 ### Interactive mode
 ```
 root@user:/holbertonschool-simple_shell# ./simple_shell
-;) /bin/ls
+😈 /bin/ls
 AUTHORS    exec_cmd.c  functions_str.c  man_1_simple_shell  read_line.c  shell.h       split_string.c
 environ.c  _exit.c     main.c           path.c              README.md    simple_shell
 
-;) /bin/pwd
+😈 /bin/pwd
 /holbertonschool-simple_shell
 
-;) /bin/ls -l
+😈 /bin/ls -l
 total 68
 -rw-r--r-- 1 root root   130 Dec  2 00:33 AUTHORS
 -rw-r--r-- 1 root root  1096 Dec  8 06:24 environ.c
@@ -106,7 +106,7 @@ total 68
 -rwxr-xr-x 1 root root 18112 Dec  8 05:57 simple_shell
 -rw-r--r-- 1 root root   465 Dec  8 06:03 split_string.c
 
-;) exit
+😈 exit
 root@user:/holbertonschool-simple_shell#
 ```
 ### Non interactive mode
